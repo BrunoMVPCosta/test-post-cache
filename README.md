@@ -12,7 +12,13 @@ docker-compose build
 docker-compose up
 ```
 
+After everything is running, you can use curl to validate if the cache is working for POST requests.
+
 ```bash
-chmod a+x requests.sh
-./requests.sh
+curl -i -X POST -H "Content-type: application/json" --data '{"name": "xpt"}' localhost:80/search/
+curl -i -X POST -H "Content-type: application/json" --data '{"name": "xpt"}' localhost:80/search/
 ```
+
+You will notice that the header `X-Cache` will have `MISS` in the first request and `HIT` in the second request.
+And the Cache-Control is respected as well, if you try and use the endpoint `/search/no/cache`, you will notice that no cache is done.
+
