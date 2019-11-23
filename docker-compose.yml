@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  web-app:
+    build: ./app
+    stop_grace_period: 30s
+    ports:
+      - 8080:8080
+
+  varnish:
+    build: ./varnish
+    depends_on:
+      - web-app
+    ports:
+      - 80:80

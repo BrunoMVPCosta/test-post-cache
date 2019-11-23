@@ -1,0 +1,13 @@
+{
+    "name": "test_post_cache_app",
+    "version": "1.0.0",
+    "description": "Show that POST does support cache",
+    "author": "Bruno Costa <bcosta10@gmail.com",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.16.1"
+    }
+}
